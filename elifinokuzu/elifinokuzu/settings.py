@@ -103,6 +103,7 @@ STATIC_URL = '/static/'
 
 try:
     from elifinokuzu.local_settings import *
+    # Bazı kısımları local_settings.py dosyasına koyduğumuzu belirttik.
 except ImportError:
     print(
         '''
