@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}
+        Default Title{% endblock %}
+    </title>
+  </head>
+  <body style="background:pink" >
+    <nav>
+        Hello {{ user.username }} <br>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a><br>
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'about' %}">ABOUT</a>
+        <a href="{% url 'support' %}">SUPPORT</a>
+
+    </nav>
+  {% block content %}
+  {% endblock %}
+   </body>
+</html>
