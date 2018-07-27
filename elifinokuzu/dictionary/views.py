@@ -2,22 +2,27 @@ from django.shortcuts import render, redirect
 from dictionary.models import Node,Edge
 from django.urls import reverse
 from .forms import SubmissionForm
+import random
 
 
 def home(request):
     nodes = Node.objects.all()
 
+    if len(Node.objects.all()) > 0:
+        random_word = random.choice(Node.objects.all()).id
+    else:
+        random_word = "None"
     # home.html dosyasına değişken yolluyoruz.
     return render(request, 'home.html', {
         'title': 'Öküzün Elifi',
         'nodes': nodes,
-    })
+        'random_word': random_word,
+})
 
 def node_detail(request, id):
     node = Node.objects.get(id=id)
     incoming = node.incoming.all()
     outgoing = node.outgoing.all()
-
     # node_detail.html dosyasına değişken yolluyoruz.
     return render(request, 'node_detail.html', {
         'node': node,
@@ -55,5 +60,4 @@ def submit(request):
                 resource=form.cleaned_data['resource'],
             )
             return redirect(reverse("node_detail", args=[source_node.id]))
-
     return render(request, 'submit.html',{"form":form})

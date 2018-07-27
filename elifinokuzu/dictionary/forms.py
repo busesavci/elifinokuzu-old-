@@ -22,7 +22,7 @@ class SubmissionForm(forms.Form):
         label='Target Node',
     )
     type_of_edge = forms.ChoiceField(
-        widget=forms.RadioSelect,
+        widget=forms.RadioSelect(),
         choices=EDGE_TYPE_CHOICES,
         label='Type of Edge',
     )
@@ -30,4 +30,4 @@ class SubmissionForm(forms.Form):
         help_text="Example: Sevan Nişanyan's Elifin Öküzü",
         max_length=255,
         label='Resource',
-    )
+)
