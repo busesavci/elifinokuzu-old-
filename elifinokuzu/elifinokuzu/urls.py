@@ -40,5 +40,5 @@ urlpatterns = [
     # 3. parti paket üstteki gibi dahil ediliyor
     path('accounts/signup/',account_views.signup, name='signup'),
     path('accounts/profile/',account_views.dashboard, name='dashboard'),
-    path('submit/',dictionary_views.submit, name='submit'),
+    path('submit/', dictionary_views.submit, name='submit'),
     ]
