@@ -2,6 +2,10 @@
 {% block title %} Submit Page {% endblock %}
 {% block content %}
   <h2>Submit</h2>
+  {% if user.is_anonymous %}
+    <div class="info warning">
+      Please login for creating a new record.</div>
+  {% endif %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
